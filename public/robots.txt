@@ -1,0 +1,13 @@
+# robots.txt pour MediStand Africa
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# Interdire l'indexation des pages d'administration (si elles existent)
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://medistandafrica.com/sitemap.xml
+

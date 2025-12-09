@@ -152,90 +152,157 @@ export const NewsletterSection: React.FC = () => {
           <Modal
             isOpen={showModal}
             onClose={handleReject}
-            title="Conditions Générales d'Abonnement à la Newsletter"
+            title="Conditions Générales d'Abonnement"
             size="lg"
           >
-            <div className="space-y-4 sm:space-y-6 text-sm sm:text-base text-gray-700">
-              <div className="bg-primary/5 p-4 rounded-lg border-l-4 border-primary">
-                <p className="font-semibold text-primary mb-2">
+            <div className="space-y-6 text-gray-700">
+              {/* Introduction */}
+              <div className="bg-gradient-to-r from-primary/10 to-accent/10 p-4 sm:p-5 rounded-xl border-l-4 border-primary">
+                <p className="font-semibold text-primary text-base sm:text-lg mb-1">
                   En vous abonnant à notre newsletter, vous acceptez les conditions suivantes :
+                </p>
+                <p className="text-sm text-gray-600 mt-2">
+                  Veuillez lire attentivement ces conditions avant de vous abonner.
                 </p>
               </div>
 
-              <div className="space-y-4">
-                <div>
-                  <h3 className="font-bold text-primary mb-2">1. Objet de l'abonnement</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    En vous abonnant à la newsletter de MediStand Africa, vous acceptez de recevoir par email des informations concernant nos services, offres promotionnelles, actualités du secteur médical, conseils pour événements, et autres communications liées à nos activités.
-                  </p>
+              {/* Conditions */}
+              <div className="space-y-5 sm:space-y-6">
+                <div className="bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200 hover:border-primary/30 transition-colors">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                      1
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-primary mb-2 text-base sm:text-lg">Objet de l'abonnement</h3>
+                      <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                        En vous abonnant à la newsletter de MediStand Africa, vous acceptez de recevoir par email des informations concernant nos services, offres promotionnelles, actualités du secteur médical, conseils pour événements, et autres communications liées à nos activités.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="font-bold text-primary mb-2">2. Données personnelles</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Les données personnelles collectées (adresse email) sont utilisées exclusivement pour l'envoi de la newsletter. Conformément à la loi sur la protection des données, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Vos données ne seront jamais cédées à des tiers sans votre consentement explicite.
-                  </p>
+                <div className="bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200 hover:border-primary/30 transition-colors">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                      2
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-primary mb-2 text-base sm:text-lg">Données personnelles</h3>
+                      <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                        Les données personnelles collectées (adresse email) sont utilisées exclusivement pour l'envoi de la newsletter. Conformément à la loi sur la protection des données, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Vos données ne seront jamais cédées à des tiers sans votre consentement explicite.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="font-bold text-primary mb-2">3. Fréquence des envois</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    La newsletter est envoyée de manière périodique, généralement une à deux fois par mois, sauf en cas d'offres spéciales ou d'actualités importantes. Nous nous engageons à ne pas saturer votre boîte mail.
-                  </p>
+                <div className="bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200 hover:border-primary/30 transition-colors">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                      3
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-primary mb-2 text-base sm:text-lg">Fréquence des envois</h3>
+                      <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                        La newsletter est envoyée de manière périodique, généralement une à deux fois par mois, sauf en cas d'offres spéciales ou d'actualités importantes. Nous nous engageons à ne pas saturer votre boîte mail.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="font-bold text-primary mb-2">4. Désinscription</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Vous pouvez vous désinscrire à tout moment en cliquant sur le lien de désinscription présent dans chaque email, ou en nous contactant directement à l'adresse : info@medistandafrica.com. La désinscription est immédiate et définitive.
-                  </p>
+                <div className="bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200 hover:border-primary/30 transition-colors">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                      4
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-primary mb-2 text-base sm:text-lg">Désinscription</h3>
+                      <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                        Vous pouvez vous désinscrire à tout moment en cliquant sur le lien de désinscription présent dans chaque email, ou en nous contactant directement à l'adresse : <a href="mailto:info@medistandafrica.com" className="text-accent hover:underline font-semibold">info@medistandafrica.com</a>. La désinscription est immédiate et définitive.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="font-bold text-primary mb-2">5. Contenu de la newsletter</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Le contenu de la newsletter peut inclure : informations sur nos stands et services, offres promotionnelles, actualités du secteur médical et pharmaceutique, conseils pour l'organisation d'événements, témoignages clients, et invitations à des événements.
-                  </p>
+                <div className="bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200 hover:border-primary/30 transition-colors">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                      5
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-primary mb-2 text-base sm:text-lg">Contenu de la newsletter</h3>
+                      <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                        Le contenu de la newsletter peut inclure : informations sur nos stands et services, offres promotionnelles, actualités du secteur médical et pharmaceutique, conseils pour l'organisation d'événements, témoignages clients, et invitations à des événements.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="font-bold text-primary mb-2">6. Responsabilité</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    MediStand Africa s'engage à fournir des informations exactes et à jour. Cependant, nous ne pouvons être tenus responsables des erreurs ou omissions dans le contenu de la newsletter. Les offres promotionnelles sont valables dans les limites des stocks disponibles et selon les conditions spécifiques indiquées.
-                  </p>
+                <div className="bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200 hover:border-primary/30 transition-colors">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                      6
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-primary mb-2 text-base sm:text-lg">Responsabilité</h3>
+                      <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                        MediStand Africa s'engage à fournir des informations exactes et à jour. Cependant, nous ne pouvons être tenus responsables des erreurs ou omissions dans le contenu de la newsletter. Les offres promotionnelles sont valables dans les limites des stocks disponibles et selon les conditions spécifiques indiquées.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="font-bold text-primary mb-2">7. Modifications des conditions</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    MediStand Africa se réserve le droit de modifier ces conditions générales à tout moment. Les abonnés seront informés de toute modification importante par email.
-                  </p>
+                <div className="bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200 hover:border-primary/30 transition-colors">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                      7
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-primary mb-2 text-base sm:text-lg">Modifications des conditions</h3>
+                      <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                        MediStand Africa se réserve le droit de modifier ces conditions générales à tout moment. Les abonnés seront informés de toute modification importante par email.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="font-bold text-primary mb-2">8. Acceptation</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    En cliquant sur "J'accepte", vous confirmez avoir lu, compris et accepté l'ensemble de ces conditions générales d'abonnement à la newsletter.
-                  </p>
+                <div className="bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200 hover:border-primary/30 transition-colors">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                      8
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-primary mb-2 text-base sm:text-lg">Acceptation</h3>
+                      <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                        En cliquant sur "J'accepte", vous confirmez avoir lu, compris et accepté l'ensemble de ces conditions générales d'abonnement à la newsletter.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 border-t border-gray-200">
-                <Button
-                  onClick={handleAccept}
-                  className="flex-1 bg-accent hover:bg-accent-dark text-white min-h-[44px]"
-                  size="lg"
-                >
-                  J'accepte et je m'abonne
-                </Button>
-                <Button
-                  onClick={handleReject}
-                  variant="outline"
-                  className="flex-1 min-h-[44px]"
-                  size="lg"
-                >
-                  Je refuse
-                </Button>
+              {/* Actions - Sticky en bas */}
+              <div className="sticky bottom-0 bg-white pt-4 pb-2 border-t-2 border-gray-200 -mx-4 sm:-mx-6 md:-mx-8 px-4 sm:px-6 md:px-8 mt-6">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  <Button
+                    onClick={handleAccept}
+                    className="flex-1 bg-accent hover:bg-accent-dark text-white min-h-[48px] text-base font-semibold shadow-lg hover:shadow-xl transition-all"
+                    size="lg"
+                  >
+                    ✓ J'accepte et je m'abonne
+                  </Button>
+                  <Button
+                    onClick={handleReject}
+                    variant="outline"
+                    className="flex-1 min-h-[48px] text-base font-semibold border-2 hover:bg-gray-50 transition-all"
+                    size="lg"
+                  >
+                    ✗ Je refuse
+                  </Button>
+                </div>
+                <p className="text-xs text-gray-500 text-center mt-3">
+                  En cliquant sur "J'accepte", vous confirmez avoir lu et accepté ces conditions.
+                </p>
               </div>
             </div>
           </Modal>

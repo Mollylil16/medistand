@@ -126,24 +126,24 @@ export default function RendezVousPage() {
   if (isSuccess) {
     return (
       <div className="bg-white min-h-screen">
-        <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
-              <h1 className="text-5xl md:text-6xl font-bold">
+        <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-12 sm:py-16 md:py-20">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6 animate-fade-in-up">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
                 Rendez-vous <span className="text-accent">Confirmé</span>
               </h1>
             </div>
           </div>
         </section>
 
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
+        <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-2xl mx-auto">
-              <Card className="p-12 text-center animate-scale-in">
-                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle size={40} className="text-green-600" />
+              <Card className="p-6 sm:p-8 md:p-12 text-center animate-scale-in">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                  <CheckCircle size={32} className="sm:w-10 sm:h-10 text-green-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-primary mb-4">Rendez-vous confirmé !</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-primary mb-3 sm:mb-4">Rendez-vous confirmé !</h3>
                 <p className="text-gray-600 mb-6">
                   Votre demande de rendez-vous a été envoyée avec succès.
                   <br />
@@ -163,13 +163,13 @@ export default function RendezVousPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl font-bold">
+      <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6 animate-fade-in-up">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               Prendre un <span className="text-accent">Rendez-vous</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200">
               Visitez notre entreprise ou rencontrons-nous pour discuter de vos besoins
             </p>
           </div>
@@ -177,17 +177,17 @@ export default function RendezVousPage() {
       </section>
 
       {/* Formulaire */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-5xl mx-auto">
             <SectionTitle
               title="Sélectionnez votre créneau"
               subtitle="Choisissez une date et une heure qui vous conviennent"
             />
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
               {/* Calendrier */}
-              <Card className="p-6">
+              <Card className="p-4 sm:p-6">
                 <h3 className="text-xl font-bold text-primary mb-4 flex items-center space-x-2">
                   <Calendar className="text-accent" />
                   <span>Date</span>
@@ -234,17 +234,17 @@ export default function RendezVousPage() {
               </Card>
 
               {/* Créneaux horaires */}
-              <Card className="p-6">
-                <h3 className="text-xl font-bold text-primary mb-4 flex items-center space-x-2">
-                  <Clock className="text-accent" />
+              <Card className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-bold text-primary mb-3 sm:mb-4 flex items-center space-x-2">
+                  <Clock className="text-accent" size={18} />
                   <span>Heure</span>
                 </h3>
                 {!selectedDate ? (
-                  <div className="text-center py-12 text-gray-500">
+                  <div className="text-center py-8 sm:py-12 text-gray-500 text-sm sm:text-base">
                     <p>Veuillez d'abord sélectionner une date</p>
                   </div>
                 ) : (
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
                     {creneaux.map((heure) => {
                       const isSelected = selectedHeure === heure;
                       return (
@@ -252,7 +252,7 @@ export default function RendezVousPage() {
                           key={heure}
                           type="button"
                           onClick={() => handleHeureSelect(heure)}
-                          className={`p-3 rounded-lg transition-all ${
+                          className={`p-2 sm:p-3 rounded-lg transition-all min-h-[44px] text-sm sm:text-base ${
                             isSelected
                               ? 'bg-accent text-white font-bold'
                               : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
@@ -274,43 +274,43 @@ export default function RendezVousPage() {
             </div>
 
             {/* Formulaire de contact */}
-            <Card className="p-8 mt-8">
-              <h3 className="text-2xl font-bold text-primary mb-6">Vos informations</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <Card className="p-4 sm:p-6 md:p-8 mt-6 sm:mt-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6">Vos informations</h3>
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 {/* Type de visite */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Type de visite *
                   </label>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <button
                       type="button"
                       onClick={() => setFormData({ ...formData, typeVisite: 'client' })}
-                      className={`p-4 rounded-lg border-2 transition-all ${
+                      className={`p-3 sm:p-4 rounded-lg border-2 transition-all min-h-[44px] ${
                         formData.typeVisite === 'client'
                           ? 'border-accent bg-accent/10'
                           : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
-                      <User className="mx-auto mb-2 text-primary" size={24} />
-                      <div className="font-semibold">Client</div>
+                      <User className="mx-auto mb-2 text-primary" size={20} />
+                      <div className="font-semibold text-sm sm:text-base">Client</div>
                     </button>
                     <button
                       type="button"
                       onClick={() => setFormData({ ...formData, typeVisite: 'fournisseur' })}
-                      className={`p-4 rounded-lg border-2 transition-all ${
+                      className={`p-3 sm:p-4 rounded-lg border-2 transition-all min-h-[44px] ${
                         formData.typeVisite === 'fournisseur'
                           ? 'border-accent bg-accent/10'
                           : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
-                      <Building className="mx-auto mb-2 text-primary" size={24} />
-                      <div className="font-semibold">Fournisseur</div>
+                      <Building className="mx-auto mb-2 text-primary" size={20} />
+                      <div className="font-semibold text-sm sm:text-base">Fournisseur</div>
                     </button>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Nom *
@@ -321,7 +321,7 @@ export default function RendezVousPage() {
                       required
                       value={formData.nom || ''}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                      className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
                     />
                   </div>
                   <div>
@@ -334,12 +334,12 @@ export default function RendezVousPage() {
                       required
                       value={formData.prenom || ''}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                      className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       <Mail className="inline mr-2" size={16} />
@@ -351,7 +351,7 @@ export default function RendezVousPage() {
                       required
                       value={formData.email || ''}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                      className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
                     />
                   </div>
                   <div>
@@ -365,7 +365,7 @@ export default function RendezVousPage() {
                       required
                       value={formData.telephone || ''}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                      className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
                     />
                   </div>
                 </div>

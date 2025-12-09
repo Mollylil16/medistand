@@ -120,32 +120,32 @@ export default function AvisPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl font-bold">
+      <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6 animate-fade-in-up">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               Avis <span className="text-accent">Clients</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200">
               Ce que nos clients disent de nous
             </p>
 
             {/* Stats */}
-            <div className="flex flex-wrap gap-8 justify-center pt-6">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 md:gap-8 justify-center pt-4 sm:pt-6">
               <div className="text-center">
-                <div className="flex items-center justify-center space-x-2 mb-2">
-                  <span className="text-4xl font-bold text-accent">{moyenneNotes.toFixed(1)}</span>
-                  <Star size={32} className="text-accent fill-accent" />
+                <div className="flex items-center justify-center space-x-2 mb-1 sm:mb-2">
+                  <span className="text-3xl sm:text-4xl font-bold text-accent">{moyenneNotes.toFixed(1)}</span>
+                  <Star size={24} className="sm:w-8 sm:h-8 text-accent fill-accent" />
                 </div>
-                <div className="text-gray-300">Moyenne des notes</div>
+                <div className="text-sm sm:text-base text-gray-300">Moyenne des notes</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-accent mb-2">{avisClients.length}</div>
-                <div className="text-gray-300">Avis clients</div>
+                <div className="text-3xl sm:text-4xl font-bold text-accent mb-1 sm:mb-2">{avisClients.length}</div>
+                <div className="text-sm sm:text-base text-gray-300">Avis clients</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-accent mb-2">100%</div>
-                <div className="text-gray-300">Satisfaction</div>
+                <div className="text-3xl sm:text-4xl font-bold text-accent mb-1 sm:mb-2">100%</div>
+                <div className="text-sm sm:text-base text-gray-300">Satisfaction</div>
               </div>
             </div>
           </div>
@@ -153,20 +153,20 @@ export default function AvisPage() {
       </section>
 
       {/* Avis List */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-5xl mx-auto">
             {/* Button to add review */}
-            <div className="text-center mb-12">
-              <Button size="lg" onClick={() => setShowForm(!showForm)}>
-                <MessageCircle size={20} className="mr-2" />
+            <div className="text-center mb-8 sm:mb-12">
+              <Button size="lg" onClick={() => setShowForm(!showForm)} className="min-h-[44px]">
+                <MessageCircle size={18} className="sm:w-5 sm:h-5 mr-2" />
                 Laisser un avis
               </Button>
             </div>
 
             {/* Form */}
             {showForm && (
-              <Card className="p-8 mb-12 animate-fade-in-up">
+              <Card className="p-4 sm:p-6 md:p-8 mb-8 sm:mb-12 animate-fade-in-up">
                 {isSuccess ? (
                   <div className="text-center py-12">
                     <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -189,7 +189,7 @@ export default function AvisPage() {
                           required
                           value={formData.nom}
                           onChange={(e) => setFormData({ ...formData, nom: e.target.value })}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                          className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
                         />
                       </div>
 
@@ -201,7 +201,7 @@ export default function AvisPage() {
                           type="text"
                           value={formData.prenom}
                           onChange={(e) => setFormData({ ...formData, prenom: e.target.value })}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                          className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
                         />
                       </div>
                     </div>

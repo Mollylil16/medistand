@@ -39,18 +39,21 @@ export default function ConfigurateurPage() {
   const prixCalcule = useMemo(() => {
     let prix = 0;
     
-    // Base : surface
+    // Base : surface à 9000 FCFA/m²
     const surface = config.largeur * config.profondeur;
-    prix += surface * 50000; // 50k FCFA par m²
+    prix += surface * 9000; // 9000 FCFA par m²
     
-    // Hauteur
+    // Hauteur supplémentaire (si > 2.4m)
     if (config.hauteur > 2.4) prix += 100000;
     
-    // Options
+    // Options supplémentaires
     if (config.comptoir) prix += 75000;
-    if (config.ecran === '43') prix += 150000;
-    if (config.ecran === '55') prix += 250000;
-    prix += config.spots * 25000;
+    // TV 43 pouces : ~300 000 FCFA
+    if (config.ecran === '43') prix += 300000;
+    // TV 55 pouces : ~500 000 FCFA
+    if (config.ecran === '55') prix += 500000;
+    // Spots LED : ~20 000 FCFA par spot
+    prix += config.spots * 20000;
     if (config.mobilier === 'premium') prix += 150000;
     if (config.mobilier === 'vip') prix += 300000;
     if (config.moquette) prix += 50000;
@@ -83,30 +86,30 @@ export default function ConfigurateurPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
-            <div className="inline-flex items-center space-x-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold">
-              <Sparkles size={16} className="text-accent" />
+      <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6 animate-fade-in-up">
+            <div className="inline-flex items-center space-x-2 bg-accent/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold">
+              <Sparkles size={14} className="sm:w-4 sm:h-4 text-accent" />
               <span>Outil Interactif</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               Configurateur de <span className="text-accent">Stand</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200">
               Créez votre stand idéal et obtenez un devis instantané
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
             {/* Configuration Panel */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-4 sm:space-y-6">
               {/* Dimensions */}
-              <Card className="p-8 animate-fade-in-up">
+              <Card className="p-4 sm:p-6 md:p-8 animate-fade-in-up">
                 <h2 className="text-2xl font-bold text-primary mb-6 flex items-center space-x-3">
                   <Ruler className="text-accent" />
                   <span>Dimensions du Stand</span>
@@ -125,8 +128,9 @@ export default function ConfigurateurPage() {
                         variant="outline"
                         onClick={() => setConfig({ ...config, largeur: Math.max(2, config.largeur - 1) })}
                         disabled={config.largeur <= 2}
+                        className="min-w-[44px] min-h-[44px]"
                       >
-                        <Minus size={16} />
+                        <Minus size={18} className="sm:w-4 sm:h-4" />
                       </Button>
                       <input
                         type="range"
@@ -134,15 +138,16 @@ export default function ConfigurateurPage() {
                         max="6"
                         value={config.largeur}
                         onChange={(e) => setConfig({ ...config, largeur: Number(e.target.value) })}
-                        className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent"
+                        className="flex-1 h-3 sm:h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent"
                       />
                       <Button
                         size="sm"
                         variant="outline"
                         onClick={() => setConfig({ ...config, largeur: Math.min(6, config.largeur + 1) })}
                         disabled={config.largeur >= 6}
+                        className="min-w-[44px] min-h-[44px]"
                       >
-                        <Plus size={16} />
+                        <Plus size={18} className="sm:w-4 sm:h-4" />
                       </Button>
                     </div>
                   </div>
@@ -159,8 +164,9 @@ export default function ConfigurateurPage() {
                         variant="outline"
                         onClick={() => setConfig({ ...config, profondeur: Math.max(2, config.profondeur - 1) })}
                         disabled={config.profondeur <= 2}
+                        className="min-w-[44px] min-h-[44px]"
                       >
-                        <Minus size={16} />
+                        <Minus size={18} className="sm:w-4 sm:h-4" />
                       </Button>
                       <input
                         type="range"
@@ -168,15 +174,16 @@ export default function ConfigurateurPage() {
                         max="6"
                         value={config.profondeur}
                         onChange={(e) => setConfig({ ...config, profondeur: Number(e.target.value) })}
-                        className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent"
+                        className="flex-1 h-3 sm:h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent"
                       />
                       <Button
                         size="sm"
                         variant="outline"
                         onClick={() => setConfig({ ...config, profondeur: Math.min(6, config.profondeur + 1) })}
                         disabled={config.profondeur >= 6}
+                        className="min-w-[44px] min-h-[44px]"
                       >
-                        <Plus size={16} />
+                        <Plus size={18} className="sm:w-4 sm:h-4" />
                       </Button>
                     </div>
                   </div>
@@ -192,18 +199,18 @@ export default function ConfigurateurPage() {
               </Card>
 
               {/* Options */}
-              <Card className="p-8 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-                <h2 className="text-2xl font-bold text-primary mb-6">Options & Équipements</h2>
+              <Card className="p-4 sm:p-6 md:p-8 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                <h2 className="text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6">Options & Équipements</h2>
 
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                   {/* Comptoir */}
                   <label className="flex items-center justify-between cursor-pointer group">
-                    <div>
-                      <div className="font-semibold text-gray-700 group-hover:text-primary transition-colors">
-                        Comptoir d'accueil
+                      <div>
+                        <div className="font-semibold text-gray-700 group-hover:text-primary transition-colors">
+                          Comptoir d'accueil
+                        </div>
+                        <div className="text-xs sm:text-sm text-gray-600">+ 75 000 FCFA</div>
                       </div>
-                      <div className="text-sm text-gray-600">+ 75 000 FCFA</div>
-                    </div>
                     <input
                       type="checkbox"
                       checked={config.comptoir}
@@ -215,21 +222,21 @@ export default function ConfigurateurPage() {
                   {/* Écran */}
                   <div>
                     <label className="font-semibold text-gray-700 block mb-3">Écran TV</label>
-                    <div className="grid grid-cols-3 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       {(['aucun', '43', '55'] as const).map((size) => (
                         <button
                           key={size}
                           onClick={() => setConfig({ ...config, ecran: size })}
-                          className={`p-4 rounded-lg border-2 transition-all ${
+                          className={`p-3 sm:p-4 rounded-lg border-2 transition-all min-h-[44px] ${
                             config.ecran === size
                               ? 'border-accent bg-accent/10 font-semibold'
                               : 'border-gray-200 hover:border-gray-300'
                           }`}
                         >
-                          <div className="font-semibold">{size === 'aucun' ? 'Sans écran' : `${size}"`}</div>
+                          <div className="font-semibold text-sm sm:text-base">{size === 'aucun' ? 'Sans écran' : `${size}"`}</div>
                           {size !== 'aucun' && (
                             <div className="text-xs text-gray-600 mt-1">
-                              +{size === '43' ? '150k' : '250k'}
+                              +{size === '43' ? '300 000' : '500 000'} FCFA
                             </div>
                           )}
                         </button>
@@ -249,8 +256,9 @@ export default function ConfigurateurPage() {
                         variant="outline"
                         onClick={() => setConfig({ ...config, spots: Math.max(0, config.spots - 1) })}
                         disabled={config.spots <= 0}
+                        className="min-w-[44px] min-h-[44px]"
                       >
-                        <Minus size={16} />
+                        <Minus size={18} className="sm:w-4 sm:h-4" />
                       </Button>
                       <input
                         type="range"
@@ -258,37 +266,38 @@ export default function ConfigurateurPage() {
                         max="8"
                         value={config.spots}
                         onChange={(e) => setConfig({ ...config, spots: Number(e.target.value) })}
-                        className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent"
+                        className="flex-1 h-3 sm:h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-accent"
                       />
                       <Button
                         size="sm"
                         variant="outline"
                         onClick={() => setConfig({ ...config, spots: Math.min(8, config.spots + 1) })}
                         disabled={config.spots >= 8}
+                        className="min-w-[44px] min-h-[44px]"
                       >
-                        <Plus size={16} />
+                        <Plus size={18} className="sm:w-4 sm:h-4" />
                       </Button>
                     </div>
-                    <div className="text-sm text-gray-600 mt-2">25 000 FCFA par spot</div>
+                    <div className="text-xs sm:text-sm text-gray-600 mt-2">20 000 FCFA par spot</div>
                   </div>
 
                   {/* Mobilier */}
                   <div>
                     <label className="font-semibold text-gray-700 block mb-3">Pack Mobilier</label>
-                    <div className="grid grid-cols-3 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       {(['standard', 'premium', 'vip'] as const).map((type) => (
                         <button
                           key={type}
                           onClick={() => setConfig({ ...config, mobilier: type })}
-                          className={`p-4 rounded-lg border-2 transition-all ${
+                          className={`p-3 sm:p-4 rounded-lg border-2 transition-all min-h-[44px] ${
                             config.mobilier === type
                               ? 'border-accent bg-accent/10 font-semibold'
                               : 'border-gray-200 hover:border-gray-300'
                           }`}
                         >
-                          <div className="font-semibold capitalize">{type}</div>
+                          <div className="font-semibold capitalize text-sm sm:text-base">{type}</div>
                           <div className="text-xs text-gray-600 mt-1">
-                            {type === 'standard' ? 'Inclus' : type === 'premium' ? '+150k' : '+300k'}
+                            {type === 'standard' ? 'Inclus' : type === 'premium' ? '+150 000 FCFA' : '+300 000 FCFA'}
                           </div>
                         </button>
                       ))}
@@ -297,48 +306,48 @@ export default function ConfigurateurPage() {
 
                   {/* Autres options */}
                   <div className="space-y-3 pt-4 border-t">
-                    <label className="flex items-center justify-between cursor-pointer group">
+                    <label className="flex items-center justify-between cursor-pointer group min-h-[44px]">
                       <div>
-                        <div className="font-semibold text-gray-700 group-hover:text-primary transition-colors">
+                        <div className="font-semibold text-sm sm:text-base text-gray-700 group-hover:text-primary transition-colors">
                           Revêtement moquette
                         </div>
-                        <div className="text-sm text-gray-600">+ 50 000 FCFA</div>
+                        <div className="text-xs sm:text-sm text-gray-600">+ 50 000 FCFA</div>
                       </div>
                       <input
                         type="checkbox"
                         checked={config.moquette}
                         onChange={(e) => setConfig({ ...config, moquette: e.target.checked })}
-                        className="w-6 h-6 text-accent border-gray-300 rounded focus:ring-accent"
+                        className="w-5 h-5 sm:w-6 sm:h-6 text-accent border-gray-300 rounded focus:ring-accent"
                       />
                     </label>
 
-                    <label className="flex items-center justify-between cursor-pointer group">
+                    <label className="flex items-center justify-between cursor-pointer group min-h-[44px]">
                       <div>
-                        <div className="font-semibold text-gray-700 group-hover:text-primary transition-colors">
+                        <div className="font-semibold text-sm sm:text-base text-gray-700 group-hover:text-primary transition-colors">
                           Espace stockage fermé
                         </div>
-                        <div className="text-sm text-gray-600">+ 100 000 FCFA</div>
+                        <div className="text-xs sm:text-sm text-gray-600">+ 100 000 FCFA</div>
                       </div>
                       <input
                         type="checkbox"
                         checked={config.stockage}
                         onChange={(e) => setConfig({ ...config, stockage: e.target.checked })}
-                        className="w-6 h-6 text-accent border-gray-300 rounded focus:ring-accent"
+                        className="w-5 h-5 sm:w-6 sm:h-6 text-accent border-gray-300 rounded focus:ring-accent"
                       />
                     </label>
 
-                    <label className="flex items-center justify-between cursor-pointer group">
+                    <label className="flex items-center justify-between cursor-pointer group min-h-[44px]">
                       <div>
-                        <div className="font-semibold text-gray-700 group-hover:text-primary transition-colors">
+                        <div className="font-semibold text-sm sm:text-base text-gray-700 group-hover:text-primary transition-colors">
                           Personnalisation branding
                         </div>
-                        <div className="text-sm text-gray-600">+ 200 000 FCFA</div>
+                        <div className="text-xs sm:text-sm text-gray-600">+ 200 000 FCFA</div>
                       </div>
                       <input
                         type="checkbox"
                         checked={config.branding}
                         onChange={(e) => setConfig({ ...config, branding: e.target.checked })}
-                        className="w-6 h-6 text-accent border-gray-300 rounded focus:ring-accent"
+                        className="w-5 h-5 sm:w-6 sm:h-6 text-accent border-gray-300 rounded focus:ring-accent"
                       />
                     </label>
                   </div>
@@ -348,7 +357,7 @@ export default function ConfigurateurPage() {
 
             {/* Summary & Price */}
             <div className="lg:col-span-1">
-              <Card className="p-8 sticky top-24 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              <Card className="p-4 sm:p-6 md:p-8 lg:sticky lg:top-24 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                 <h2 className="text-2xl font-bold text-primary mb-6">Votre Configuration</h2>
 
                 <div className="space-y-4 mb-6">
@@ -405,12 +414,17 @@ export default function ConfigurateurPage() {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-accent/20 to-accent/10 p-6 rounded-xl mb-6">
-                  <div className="text-sm text-gray-600 mb-2">Prix estimé</div>
-                  <div className="text-4xl font-bold text-primary mb-2">
+                <div className="bg-gradient-to-br from-accent/20 to-accent/10 p-4 sm:p-6 rounded-xl mb-4 sm:mb-6">
+                  <div className="text-xs sm:text-sm text-gray-600 mb-1 sm:mb-2">Prix estimé</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">
                     {formatPrice(prixCalcule)}
                   </div>
-                  <div className="text-xs text-gray-600">par événement (TVA incluse)</div>
+                  <div className="text-xs text-gray-600 mb-2">
+                    Base : {config.largeur * config.profondeur}m² × 9 000 FCFA/m²
+                  </div>
+                  <div className="text-xs text-accent font-semibold">
+                    Une proforma personnalisée vous sera envoyée après validation
+                  </div>
                 </div>
 
                 <div className="space-y-3">
@@ -427,8 +441,8 @@ export default function ConfigurateurPage() {
                   </Button>
                 </div>
 
-                <p className="text-xs text-gray-500 text-center mt-6">
-                  Prix indicatif. Devis final après validation.
+                <p className="text-xs text-gray-500 text-center mt-4 sm:mt-6">
+                  Prix indicatif. Une proforma personnalisée vous sera envoyée par notre gestionnaire après validation de votre demande.
                 </p>
               </Card>
             </div>

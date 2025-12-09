@@ -22,25 +22,25 @@ export default function AProposPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-20 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-12 sm:py-16 md:py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }} />
         </div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
-            <div className="inline-flex items-center space-x-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold">
-              <Sparkles size={16} className="text-accent" />
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6 animate-fade-in-up">
+            <div className="inline-flex items-center space-x-2 bg-accent/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold">
+              <Sparkles size={14} className="sm:w-4 sm:h-4 text-accent" />
               <span>Notre Histoire</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               À propos de <span className="text-accent">MediStand Africa</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 leading-relaxed">
               Une vision locale, des standards internationaux
             </p>
           </div>
@@ -48,8 +48,8 @@ export default function AProposPage() {
       </section>
 
       {/* Histoire Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
             <SectionTitle
               title="Notre Histoire"
@@ -93,9 +93,9 @@ export default function AProposPage() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto">
             {/* Vision */}
             <Card className="p-10 bg-gradient-to-br from-primary/5 to-secondary/5 border-2 border-primary/10">
               <div className="flex items-center space-x-4 mb-6">
@@ -139,14 +139,14 @@ export default function AProposPage() {
       </section>
 
       {/* Nos Valeurs */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6">
           <SectionTitle
             title="Nos Valeurs"
             subtitle="Les principes qui guident notre action au quotidien"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {[
               {
                 icon: Award,
@@ -196,14 +196,14 @@ export default function AProposPage() {
       </section>
 
       {/* Pourquoi Nous Choisir */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
           <SectionTitle
             title="Pourquoi Choisir MediStand Africa ?"
             subtitle="Des avantages concurrentiels qui font la différence"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {avantages.map((avantage, index) => (
               <Card 
                 key={avantage.id}
@@ -226,31 +226,31 @@ export default function AProposPage() {
       </section>
 
       {/* Engagement Qualité */}
-      <section className="py-20 bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="w-20 h-20 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Award size={40} />
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+              <Award size={32} className="sm:w-10 sm:h-10" />
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-bold">Notre Engagement Qualité</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">Notre Engagement Qualité</h2>
             
-            <p className="text-xl text-gray-200 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed px-2">
               Chez MediStand Africa, nous nous engageons à fournir des stands conformes aux <span className="font-semibold text-accent">standards internationaux</span>, avec une <span className="font-semibold text-accent">installation professionnelle</span> et un <span className="font-semibold text-accent">support technique</span> pendant toute la durée de vos événements.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 pt-6 sm:pt-8">
               <div className="text-center">
-                <div className="text-5xl font-bold text-accent mb-2">100%</div>
-                <div className="text-lg">Satisfaction client</div>
+                <div className="text-4xl sm:text-5xl font-bold text-accent mb-1 sm:mb-2">100%</div>
+                <div className="text-sm sm:text-base md:text-lg">Satisfaction client</div>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold text-accent mb-2">24/7</div>
-                <div className="text-lg">Support disponible</div>
+                <div className="text-4xl sm:text-5xl font-bold text-accent mb-1 sm:mb-2">24/7</div>
+                <div className="text-sm sm:text-base md:text-lg">Support disponible</div>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold text-accent mb-2">0</div>
-                <div className="text-lg">Compromis sur la qualité</div>
+                <div className="text-4xl sm:text-5xl font-bold text-accent mb-1 sm:mb-2">0</div>
+                <div className="text-sm sm:text-base md:text-lg">Compromis sur la qualité</div>
               </div>
             </div>
           </div>

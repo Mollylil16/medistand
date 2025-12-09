@@ -20,12 +20,25 @@ export const metadata: Metadata = {
   description: 'MediStand Africa propose des stands professionnels pour congrès médicaux, salons et événements scientifiques en Côte d\'Ivoire. La structure qui valorise votre visibilité.',
   keywords: 'stand médical, stand exposition, stand congrès, location stand Abidjan, congrès médical Côte d\'Ivoire, exposition pharmaceutique',
   authors: [{ name: 'MediStand Africa' }],
+  icons: {
+    icon: '/logo.jpg',
+    shortcut: '/logo.jpg',
+    apple: '/logo.jpg',
+  },
   openGraph: {
     title: 'MediStand Africa - Location de Stands pour Congrès Médicaux',
     description: 'Solutions professionnelles pour vos événements médicaux et scientifiques',
     type: 'website',
     locale: 'fr_CI',
     siteName: 'MediStand Africa',
+    images: [
+      {
+        url: '/logo.jpg',
+        width: 512,
+        height: 512,
+        alt: 'MediStand Africa Logo',
+      },
+    ],
   },
 };
 

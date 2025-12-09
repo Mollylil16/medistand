@@ -32,7 +32,7 @@ export const stands: Stand[] = [
       'Installation professionnelle incluse',
       'Transport et démontage inclus',
     ],
-    prix: 1200000,
+    prix: 0, // Prix au m² : 9000 FCFA/m² - Proforma sur demande
     image: '/stand1.jpg',
     caracteristiques: [
       'Surface totale: 18m²',
@@ -72,7 +72,7 @@ export const stands: Stand[] = [
       'Parfait pour petits budgets',
       'Transport inclus',
     ],
-    prix: 650000,
+    prix: 0, // Prix au m² : 9000 FCFA/m² - Proforma sur demande
     image: '/stand 2.png',
     caracteristiques: [
       'Surface totale: 6m²',
@@ -112,7 +112,7 @@ export const stands: Stand[] = [
       'Installation professionnelle',
       'Support technique inclus',
     ],
-    prix: 850000,
+    prix: 0, // Prix au m² : 9000 FCFA/m² - Proforma sur demande
     image: '/stand 3.jpg',
     caracteristiques: [
       'Surface totale: 9m²',

@@ -21,13 +21,13 @@ export default function ContactPage() {
           }} />
         </div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl font-bold">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6 animate-fade-in-up">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               Contactez-<span className="text-accent">nous</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 leading-relaxed">
               Notre équipe est à votre écoute pour répondre à toutes vos questions
             </p>
           </div>
@@ -35,9 +35,9 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto mb-8 sm:mb-12">
             <Card className="p-6 text-center animate-fade-in-up group">
               <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <Phone size={28} />
@@ -83,6 +83,42 @@ export default function ContactPage() {
               </p>
             </Card>
           </div>
+
+          {/* Contacts Gestionnaire */}
+          {contactInfo.gestionnaire && (
+            <div className="max-w-4xl mx-auto mb-12 sm:mb-16">
+              <Card className="p-6 sm:p-8 bg-gradient-to-br from-primary/5 to-accent/5 border-2 border-primary/20">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">Contact Gestionnaire</h3>
+                  <p className="text-sm sm:text-base text-gray-600">
+                    Pour vos demandes de devis, proformas et questions commerciales
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  <a
+                    href={`tel:${contactInfo.gestionnaire.telephone1}`}
+                    className="flex items-center justify-center space-x-3 p-4 bg-white rounded-lg hover:bg-primary/10 transition-colors group"
+                  >
+                    <Phone size={24} className="text-accent group-hover:scale-110 transition-transform" />
+                    <div className="text-left">
+                      <div className="text-xs text-gray-600">Gestionnaire</div>
+                      <div className="font-bold text-primary">{contactInfo.gestionnaire.telephone1}</div>
+                    </div>
+                  </a>
+                  <a
+                    href={`tel:${contactInfo.gestionnaire.telephone2}`}
+                    className="flex items-center justify-center space-x-3 p-4 bg-white rounded-lg hover:bg-primary/10 transition-colors group"
+                  >
+                    <Phone size={24} className="text-accent group-hover:scale-110 transition-transform" />
+                    <div className="text-left">
+                      <div className="text-xs text-gray-600">Gestionnaire</div>
+                      <div className="font-bold text-primary">{contactInfo.gestionnaire.telephone2}</div>
+                    </div>
+                  </a>
+                </div>
+              </Card>
+            </div>
+          )}
 
           {/* Horaires */}
           <Card className="p-8 max-w-3xl mx-auto text-center mb-16">
@@ -141,7 +177,7 @@ export default function ContactPage() {
             subtitle="Réponses rapides aux questions les plus courantes"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto">
             {[
               {
                 question: 'Quel est votre délai de réponse ?',

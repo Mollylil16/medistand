@@ -23,20 +23,20 @@ export default function StandsPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-20 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-12 sm:py-16 md:py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }} />
         </div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl font-bold">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6 animate-fade-in-up">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               Nos <span className="text-accent">Stands Professionnels</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 leading-relaxed">
               Des solutions adaptées à tous vos besoins d'exposition
             </p>
           </div>
@@ -44,9 +44,9 @@ export default function StandsPage() {
       </section>
 
       {/* Stands Grid */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="space-y-20">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="space-y-12 sm:space-y-16 md:space-y-20">
             {stands.map((stand, index) => (
               <div 
                 key={stand.id} 
@@ -54,9 +54,9 @@ export default function StandsPage() {
                 className="scroll-mt-20"
               >
                 <Card className="overflow-hidden animate-fade-in-up max-w-7xl mx-auto">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
                     {/* Image */}
-                    <div className="relative h-[400px] lg:h-auto overflow-hidden">
+                    <div className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-auto overflow-hidden">
                       <Image
                         src={stand.image}
                         alt={stand.nom}
@@ -79,31 +79,34 @@ export default function StandsPage() {
                     </div>
 
                     {/* Details */}
-                    <div className="p-8 space-y-6">
+                    <div className="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
                       <div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-3 sm:mb-4">
                           {stand.nom}
                         </h2>
-                        <p className="text-lg text-gray-600 leading-relaxed">
+                        <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                           {stand.description}
                         </p>
                       </div>
 
                       {/* Prix */}
-                      <div className="bg-accent/10 border-l-4 border-accent p-6 rounded-r-lg">
-                        <div className="flex items-baseline justify-between">
-                          <div>
-                            <div className="text-sm text-gray-600 mb-1">Tarif location</div>
-                            <div className="text-4xl font-bold text-primary">
-                              {stand.prix > 0 ? formatPrice(stand.prix) : 'Sur devis'}
+                      <div className="bg-accent/10 border-l-4 border-accent p-4 sm:p-6 rounded-r-lg">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-baseline justify-between gap-4">
+                          <div className="flex-1">
+                            <div className="text-xs sm:text-sm text-gray-600 mb-1">Tarif location</div>
+                            <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary">
+                              À partir de 9 000 FCFA/m²
                             </div>
-                            {stand.prix > 0 && (
-                              <div className="text-sm text-gray-600 mt-1">par événement</div>
-                            )}
+                            <div className="text-xs sm:text-sm text-gray-600 mt-1">
+                              Proforma personnalisée sur demande
+                            </div>
+                            <div className="text-xs text-accent font-semibold mt-2">
+                              Surface : {parseInt(stand.dimensions.largeur) * parseInt(stand.dimensions.profondeur)}m²
+                            </div>
                           </div>
-                          <Link href="/tarifs">
-                            <Button className="group">
-                              Réserver
+                          <Link href="/tarifs" className="w-full sm:w-auto">
+                            <Button className="group w-full sm:w-auto min-h-[44px]">
+                              Demander un devis
                               <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
                             </Button>
                           </Link>
@@ -150,7 +153,7 @@ export default function StandsPage() {
                           </div>
                           <div>
                             <div className="font-semibold text-primary mb-2">Caractéristiques</div>
-                            <div className="grid grid-cols-2 gap-2">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                               {stand.caracteristiques.map((caract, idx) => (
                                 <div key={idx} className="text-sm text-gray-600 bg-gray-50 px-3 py-2 rounded-lg">
                                   {caract}
@@ -215,18 +218,18 @@ export default function StandsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl md:text-5xl font-bold">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
               Trouvé le stand idéal ?
             </h2>
             
-            <p className="text-xl text-gray-200">
+            <p className="text-base sm:text-lg md:text-xl text-gray-200">
               Contactez-nous pour obtenir un devis personnalisé et réserver votre stand
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-2 sm:pt-4">
               <Link href="/tarifs">
                 <Button size="lg" className="group">
                   Demander un devis

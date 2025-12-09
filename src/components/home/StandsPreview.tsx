@@ -15,14 +15,14 @@ export const StandsPreview: React.FC = () => {
   const featuredStands = stands.slice(0, 3);
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-12 sm:py-16 md:py-20 bg-white">
+      <div className="container mx-auto px-4 sm:px-6">
         <SectionTitle
           title="Nos Stands Professionnels"
           subtitle="Des solutions adaptées à tous vos besoins d'exposition"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
           {featuredStands.map((stand, index) => (
             <Card 
               key={stand.id}
@@ -30,7 +30,7 @@ export const StandsPreview: React.FC = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Image */}
-              <div className="relative h-64 rounded-lg mb-6 overflow-hidden">
+              <div className="relative h-[200px] sm:h-[240px] md:h-[280px] lg:h-64 rounded-lg mb-4 sm:mb-6 overflow-hidden">
                 <Image
                   src={stand.image}
                   alt={stand.nom}
@@ -81,9 +81,12 @@ export const StandsPreview: React.FC = () => {
                 <div className="pt-4 border-t">
                   <div className="flex items-baseline justify-between mb-4">
                     <div>
-                      <div className="text-sm text-gray-600">À partir de</div>
-                      <div className="text-3xl font-bold text-primary">
-                        {stand.prix > 0 ? formatPrice(stand.prix) : 'Sur devis'}
+                      <div className="text-xs sm:text-sm text-gray-600">À partir de</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-primary">
+                        9 000 FCFA/m²
+                      </div>
+                      <div className="text-xs text-gray-500 mt-1">
+                        {parseInt(stand.dimensions.largeur) * parseInt(stand.dimensions.profondeur)}m² - Proforma sur demande
                       </div>
                     </div>
                   </div>

@@ -127,17 +127,17 @@ export default function Galerie360Page() {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
-            <div className="inline-flex items-center space-x-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold">
-              <Camera size={16} className="text-accent" />
+      <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6 animate-fade-in-up">
+            <div className="inline-flex items-center space-x-2 bg-accent/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold">
+              <Camera size={14} className="sm:w-4 sm:h-4 text-accent" />
               <span>Galerie Photos</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               Galerie <span className="text-accent">Virtuelle</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200">
               Découvrez nos stands installés lors de divers événements médicaux
             </p>
           </div>
@@ -145,14 +145,14 @@ export default function Galerie360Page() {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6">
           <SectionTitle
             title="Nos Réalisations"
             subtitle="Parcourez notre galerie de stands professionnels"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
             {galleryImages.map((item, index) => (
               <div
                 key={item.id}
@@ -162,7 +162,7 @@ export default function Galerie360Page() {
                   className="group cursor-pointer overflow-hidden animate-fade-in-up hover:shadow-2xl"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-[200px] sm:h-[240px] md:h-[280px] lg:h-64 overflow-hidden">
                     <Image
                       src={item.image}
                       alt={item.title}
@@ -183,14 +183,14 @@ export default function Galerie360Page() {
                     </div>
                   </div>
 
-                  <div className="p-4">
-                    <h3 className="font-bold text-primary mb-2 line-clamp-2 group-hover:text-accent transition-colors">
+                  <div className="p-3 sm:p-4">
+                    <h3 className="font-bold text-sm sm:text-base text-primary mb-1 sm:mb-2 line-clamp-2 group-hover:text-accent transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-gray-600 line-clamp-2">{item.description}</p>
-                    <div className="flex items-center justify-between mt-3 text-xs text-gray-500">
+                    <p className="text-xs sm:text-sm text-gray-600 line-clamp-2">{item.description}</p>
+                    <div className="flex items-center justify-between mt-2 sm:mt-3 text-xs text-gray-500">
                       <span>{item.date}</span>
-                      <Maximize2 size={14} className="group-hover:text-accent transition-colors" />
+                      <Maximize2 size={12} className="sm:w-3.5 sm:h-3.5 group-hover:text-accent transition-colors" />
                     </div>
                   </div>
                 </Card>
@@ -243,7 +243,7 @@ export default function Galerie360Page() {
             className="container mx-auto px-4 h-full flex flex-col justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative h-[70vh] mb-6">
+            <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] mb-4 sm:mb-6">
               <Image
                 src={selectedImage.image}
                 alt={selectedImage.title}
@@ -254,13 +254,13 @@ export default function Galerie360Page() {
               />
             </div>
 
-            <div className="text-white text-center space-y-2">
-              <div className="text-xs text-accent font-semibold">
+            <div className="text-white text-center space-y-2 px-4">
+              <div className="text-xs sm:text-sm text-accent font-semibold">
                 {selectedImage.event} • {selectedImage.date}
               </div>
-              <h2 className="text-2xl font-bold">{selectedImage.title}</h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">{selectedImage.description}</p>
-              <div className="text-sm text-gray-500 pt-2">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold">{selectedImage.title}</h2>
+              <p className="text-xs sm:text-sm text-gray-400 max-w-2xl mx-auto">{selectedImage.description}</p>
+              <div className="text-xs sm:text-sm text-gray-500 pt-2">
                 {currentIndex + 1} / {galleryImages.length}
               </div>
             </div>
@@ -269,16 +269,16 @@ export default function Galerie360Page() {
       )}
 
       {/* CTA */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <Card className="max-w-4xl mx-auto p-12 text-center bg-gradient-to-br from-primary/5 to-secondary/5">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <Card className="max-w-4xl mx-auto p-6 sm:p-8 md:p-12 text-center bg-gradient-to-br from-primary/5 to-secondary/5">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-3 sm:mb-4">
               Impressionné par nos réalisations ?
             </h2>
-            <p className="text-lg text-gray-700 mb-8">
+            <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8">
               Contactez-nous pour créer un stand exceptionnel pour votre prochain événement
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Button size="lg" onClick={() => window.location.href = '/reservation'}>
                 Réserver un stand
               </Button>

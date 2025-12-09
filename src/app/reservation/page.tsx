@@ -122,13 +122,13 @@ export default function ReservationPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl font-bold">
+      <section className="relative bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6 animate-fade-in-up">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               Réservez Votre <span className="text-accent">Stand</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200">
               Processus simple en 3 étapes
             </p>
           </div>
@@ -137,8 +137,8 @@ export default function ReservationPage() {
 
       {/* Steps Indicator */}
       <div className="bg-white border-b sticky top-0 z-40">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-center space-x-4">
+        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
             {[
               { num: 1, label: 'Choisir un stand' },
               { num: 2, label: 'Dates & Lieu' },
@@ -146,17 +146,17 @@ export default function ReservationPage() {
             ].map((s, idx) => (
               <React.Fragment key={s.num}>
                 <div className="flex items-center space-x-2">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all ${
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all min-w-[40px] min-h-[40px] ${
                     step >= s.num ? 'bg-accent text-white' : 'bg-gray-200 text-gray-500'
                   }`}>
                     {step > s.num ? <Check size={20} /> : s.num}
                   </div>
-                  <span className={`hidden md:block text-sm ${step >= s.num ? 'text-primary font-semibold' : 'text-gray-500'}`}>
+                  <span className={`text-xs sm:text-sm ${step >= s.num ? 'text-primary font-semibold' : 'text-gray-500'}`}>
                     {s.label}
                   </span>
                 </div>
                 {idx < 2 && (
-                  <div className={`h-1 w-12 md:w-24 transition-all ${step > s.num ? 'bg-accent' : 'bg-gray-200'}`} />
+                  <div className={`hidden sm:block h-1 w-12 md:w-24 transition-all ${step > s.num ? 'bg-accent' : 'bg-gray-200'}`} />
                 )}
               </React.Fragment>
             ))}
@@ -166,21 +166,21 @@ export default function ReservationPage() {
 
       {/* Step 1: Choose Stand */}
       {step === 1 && (
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
+        <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+          <div className="container mx-auto px-4 sm:px-6">
             <SectionTitle
               title="Choisissez votre stand"
               subtitle="Sélectionnez le stand qui correspond à vos besoins"
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
               {stands.filter(s => s.prix > 0).map((stand, index) => (
                 <Card
                   key={stand.id}
                   className="hover:shadow-2xl transition-all animate-fade-in-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="relative h-48 overflow-hidden rounded-t-lg cursor-pointer" onClick={() => handleStandSelect(stand.id)}>
+                  <div className="relative h-[180px] sm:h-[200px] md:h-[220px] lg:h-48 overflow-hidden rounded-t-lg cursor-pointer" onClick={() => handleStandSelect(stand.id)}>
                     <Image
                       src={stand.image}
                       alt={stand.nom}
@@ -190,20 +190,22 @@ export default function ReservationPage() {
                     />
                   </div>
 
-                  <div className="p-6 space-y-4">
-                    <h3 className="text-xl font-bold text-primary">{stand.nom}</h3>
-                    <p className="text-gray-600 text-sm line-clamp-2">{stand.description}</p>
+                  <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
+                    <h3 className="text-lg sm:text-xl font-bold text-primary">{stand.nom}</h3>
+                    <p className="text-gray-600 text-xs sm:text-sm line-clamp-2">{stand.description}</p>
 
-                    <div className="flex items-baseline justify-between pt-2 border-t">
-                      <div>
-                        <div className="text-2xl font-bold text-primary">
-                          {formatPrice(stand.prix)}
+                    <div className="flex flex-col sm:flex-row items-start sm:items-baseline justify-between pt-2 border-t gap-3">
+                      <div className="flex-1">
+                        <div className="text-lg sm:text-xl md:text-2xl font-bold text-primary">
+                          À partir de 9 000 FCFA/m²
                         </div>
-                        <div className="text-xs text-gray-600">par événement</div>
+                        <div className="text-xs text-gray-600">
+                          {parseInt(stand.dimensions.largeur) * parseInt(stand.dimensions.profondeur)}m² - Proforma sur demande
+                        </div>
                       </div>
-                      <Button size="sm" onClick={() => handleStandSelect(stand.id)}>
+                      <Button size="sm" onClick={() => handleStandSelect(stand.id)} className="min-h-[44px] text-xs sm:text-sm w-full sm:w-auto">
                         Sélectionner
-                        <ArrowRight size={16} className="ml-2" />
+                        <ArrowRight size={14} className="sm:w-4 sm:h-4 ml-1 sm:ml-2" />
                       </Button>
                     </div>
                   </div>
@@ -216,18 +218,18 @@ export default function ReservationPage() {
 
       {/* Step 2: Dates & Location */}
       {step === 2 && selectedStand && (
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
+        <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-3xl mx-auto">
-              <Card className="p-8">
+              <Card className="p-4 sm:p-6 md:p-8">
                 <h2 className="text-2xl font-bold text-primary mb-6 flex items-center space-x-3">
                   <Calendar className="text-accent" />
                   <span>Dates et Lieu de l'événement</span>
                 </h2>
 
-                <div className="bg-accent/10 p-4 rounded-lg mb-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="relative w-20 h-20">
+                <div className="bg-accent/10 p-3 sm:p-4 rounded-lg mb-4 sm:mb-6">
+                  <div className="flex items-center space-x-3 sm:space-x-4">
+                    <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0">
                       <Image
                         src={selectedStand.image}
                         alt={selectedStand.nom}
@@ -235,16 +237,21 @@ export default function ReservationPage() {
                         className="object-cover rounded-lg"
                       />
                     </div>
-                    <div>
-                      <div className="font-bold text-primary">{selectedStand.nom}</div>
-                      <div className="text-sm text-gray-600">{selectedStand.dimensions.largeur} × {selectedStand.dimensions.profondeur}</div>
-                      <div className="text-lg font-bold text-accent">{formatPrice(selectedStand.prix)}</div>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-bold text-sm sm:text-base text-primary">{selectedStand.nom}</div>
+                      <div className="text-xs sm:text-sm text-gray-600">{selectedStand.dimensions.largeur} × {selectedStand.dimensions.profondeur}</div>
+                      <div className="text-sm sm:text-base md:text-lg font-bold text-accent">
+                        À partir de 9 000 FCFA/m²
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        Proforma personnalisée sur demande
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <form onSubmit={handleDateSubmit} className="space-y-6">
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
                         Date de début *
@@ -255,7 +262,7 @@ export default function ReservationPage() {
                         min={new Date().toISOString().split('T')[0]}
                         value={reservation.dateDebut || ''}
                         onChange={(e) => setReservation({ ...reservation, dateDebut: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                        className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
                       />
                     </div>
 
@@ -269,7 +276,7 @@ export default function ReservationPage() {
                         min={reservation.dateDebut || new Date().toISOString().split('T')[0]}
                         value={reservation.dateFin || ''}
                         onChange={(e) => setReservation({ ...reservation, dateFin: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                        className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
                       />
                     </div>
                   </div>
@@ -302,11 +309,11 @@ export default function ReservationPage() {
                     />
                   </div>
 
-                  <div className="flex gap-4 pt-4">
-                    <Button type="button" variant="outline" onClick={() => setStep(1)}>
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
+                    <Button type="button" variant="outline" onClick={() => setStep(1)} className="w-full sm:w-auto min-h-[44px]">
                       Retour
                     </Button>
-                    <Button type="submit" className="flex-1">
+                    <Button type="submit" className="flex-1 w-full sm:w-auto min-h-[44px]">
                       Continuer
                       <ArrowRight size={20} className="ml-2" />
                     </Button>
@@ -320,16 +327,16 @@ export default function ReservationPage() {
 
       {/* Step 3: Personal Information */}
       {step === 3 && (
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
+        <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-3xl mx-auto">
-              <Card className="p-8">
+              <Card className="p-4 sm:p-6 md:p-8">
                 <h2 className="text-2xl font-bold text-primary mb-6">
                   Vos informations
                 </h2>
 
                 <form onSubmit={handleFinalSubmit} className="space-y-6">
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
                         Prénom *
@@ -339,7 +346,7 @@ export default function ReservationPage() {
                         required
                         value={reservation.prenom || ''}
                         onChange={(e) => setReservation({ ...reservation, prenom: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                        className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
                       />
                     </div>
 
@@ -352,7 +359,7 @@ export default function ReservationPage() {
                         required
                         value={reservation.nom || ''}
                         onChange={(e) => setReservation({ ...reservation, nom: e.target.value })}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                        className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
                       />
                     </div>
                   </div>
@@ -361,34 +368,34 @@ export default function ReservationPage() {
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Email *
                     </label>
-                    <input
-                      type="email"
-                      required
-                      value={reservation.email || ''}
-                      onChange={(e) => setReservation({ ...reservation, email: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
-                    />
+                      <input
+                        type="email"
+                        required
+                        value={reservation.email || ''}
+                        onChange={(e) => setReservation({ ...reservation, email: e.target.value })}
+                        className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                      />
                   </div>
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Téléphone *
                     </label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="+225 XX XX XX XX XX"
-                      value={reservation.telephone || ''}
-                      onChange={(e) => setReservation({ ...reservation, telephone: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
-                    />
+                      <input
+                        type="tel"
+                        required
+                        placeholder="+225 XX XX XX XX XX"
+                        value={reservation.telephone || ''}
+                        onChange={(e) => setReservation({ ...reservation, telephone: e.target.value })}
+                        className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                      />
                   </div>
 
-                  <div className="flex gap-4 pt-4">
-                    <Button type="button" variant="outline" onClick={() => setStep(2)}>
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
+                    <Button type="button" variant="outline" onClick={() => setStep(2)} className="w-full sm:w-auto min-h-[44px]">
                       Retour
                     </Button>
-                    <Button type="submit" disabled={isSubmitting} className="flex-1">
+                    <Button type="submit" disabled={isSubmitting} className="flex-1 w-full sm:w-auto min-h-[44px]">
                       {isSubmitting ? 'Envoi en cours...' : 'Confirmer la réservation'}
                       {!isSubmitting && <Check size={20} className="ml-2" />}
                     </Button>

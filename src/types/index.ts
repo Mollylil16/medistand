@@ -56,6 +56,10 @@ export interface ContactInfo {
   email: string;
   adresse: string;
   horaires: string;
+  gestionnaire?: {
+    telephone1: string;
+    telephone2: string;
+  };
 }
 
 export interface NavigationItem {

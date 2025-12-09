@@ -13,11 +13,15 @@ export const navigationItems: NavigationItem[] = [
 ];
 
 export const contactInfo: ContactInfo = {
-  telephone: '+225 0789886013',
-  whatsapp: '+2250789886013',
-  email: 'contact@medistandafrica.com',
+  telephone: '+225 0758184732',
+  whatsapp: '+2250758184732',
+  email: 'info@medistandafrica.com',
   adresse: 'Abidjan, Côte d\'Ivoire',
   horaires: 'Lun - Ven: 8h00 - 18h00 | Sam: 9h00 - 13h00',
+  gestionnaire: {
+    telephone1: '+225 0758184732',
+    telephone2: '+225 0709343667',
+  },
 };
 
 export const socialLinks = {

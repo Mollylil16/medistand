@@ -28,14 +28,14 @@ const iconMap: Record<string, React.ComponentType<{ size?: number; className?: s
 
 export const AvantagesSection: React.FC = () => {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6">
         <SectionTitle
           title="Pourquoi choisir MediStand Africa ?"
           subtitle="Des avantages concurrentiels qui font la différence pour vos événements"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {avantages.map((avantage, index) => {
             const IconComponent = iconMap[avantage.icone];
             

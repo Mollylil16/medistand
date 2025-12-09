@@ -84,11 +84,11 @@ export const DevisForm: React.FC = () => {
 
   if (isSuccess) {
     return (
-      <Card className="p-12 text-center animate-scale-in">
-        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-          <CheckCircle size={40} className="text-green-600" />
+      <Card className="p-6 sm:p-8 md:p-12 text-center animate-scale-in">
+        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+          <CheckCircle size={32} className="sm:w-10 sm:h-10 text-green-600" />
         </div>
-        <h3 className="text-2xl font-bold text-primary mb-4">Demande envoyée avec succès !</h3>
+        <h3 className="text-xl sm:text-2xl font-bold text-primary mb-3 sm:mb-4">Demande envoyée avec succès !</h3>
         <p className="text-gray-600 mb-6">
           Nous avons bien reçu votre demande de devis. Notre équipe vous contactera dans les plus brefs délais.
         </p>
@@ -100,12 +100,12 @@ export const DevisForm: React.FC = () => {
   }
 
   return (
-    <Card className="p-8">
+    <Card className="p-4 sm:p-6 md:p-8">
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Informations Personnelles */}
         <div>
           <h3 className="text-xl font-bold text-primary mb-4">Vos informations</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label htmlFor="prenom" className="block text-sm font-semibold text-gray-700 mb-2">
                 Prénom *
@@ -117,7 +117,7 @@ export const DevisForm: React.FC = () => {
                 required
                 value={formData.prenom}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
                 placeholder="Votre prénom"
               />
             </div>
@@ -133,7 +133,7 @@ export const DevisForm: React.FC = () => {
                 required
                 value={formData.nom}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
                 placeholder="Votre nom"
               />
             </div>
@@ -149,7 +149,7 @@ export const DevisForm: React.FC = () => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
                 placeholder="votre@email.com"
               />
             </div>
@@ -165,12 +165,12 @@ export const DevisForm: React.FC = () => {
                 required
                 value={formData.telephone}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
                 placeholder="+225 XX XX XX XX XX"
               />
             </div>
 
-            <div className="md:col-span-2">
+            <div className="sm:col-span-2">
               <label htmlFor="entreprise" className="block text-sm font-semibold text-gray-700 mb-2">
                 Entreprise / Organisation *
               </label>
@@ -181,7 +181,7 @@ export const DevisForm: React.FC = () => {
                 required
                 value={formData.entreprise}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
                 placeholder="Nom de votre entreprise"
               />
             </div>
@@ -191,8 +191,8 @@ export const DevisForm: React.FC = () => {
         {/* Détails de l'Événement */}
         <div className="pt-6 border-t">
           <h3 className="text-xl font-bold text-primary mb-4">Détails de l'événement</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="md:col-span-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="sm:col-span-2">
               <label htmlFor="typeStand" className="block text-sm font-semibold text-gray-700 mb-2">
                 Type de stand souhaité *
               </label>
@@ -202,7 +202,7 @@ export const DevisForm: React.FC = () => {
                 required
                 value={formData.typeStand}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
               >
                 <option value="">Sélectionnez un stand</option>
                 {stands.map(stand => (
@@ -224,7 +224,7 @@ export const DevisForm: React.FC = () => {
                 required
                 value={formData.dateDebut}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
               />
             </div>
 
@@ -239,11 +239,11 @@ export const DevisForm: React.FC = () => {
                 required
                 value={formData.dateFin}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
               />
             </div>
 
-            <div className="md:col-span-2">
+            <div className="sm:col-span-2">
               <label htmlFor="lieu" className="block text-sm font-semibold text-gray-700 mb-2">
                 Lieu de l'événement *
               </label>
@@ -254,7 +254,7 @@ export const DevisForm: React.FC = () => {
                 required
                 value={formData.lieu}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
                 placeholder="Ex: Sofitel Ivoire, Abidjan"
               />
             </div>
@@ -325,7 +325,13 @@ export const DevisForm: React.FC = () => {
             )}
           </Button>
 
-          <p className="text-sm text-gray-500 text-center mt-4">
+          <div className="bg-primary/5 border-l-4 border-primary p-3 sm:p-4 rounded-r-lg mt-4">
+            <p className="text-xs sm:text-sm text-gray-700">
+              <span className="font-semibold text-primary">Note :</span> Une proforma vous sera envoyée par email après validation de votre demande. 
+              Tarification de base : <span className="font-bold text-accent">9 000 FCFA/m²</span>.
+            </p>
+          </div>
+          <p className="text-xs sm:text-sm text-gray-500 text-center mt-3 sm:mt-4">
             En soumettant ce formulaire, vous acceptez d'être contacté par MediStand Africa concernant votre demande.
           </p>
         </div>

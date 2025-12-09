@@ -1,0 +1,13 @@
+# Voir les logs
+pm2 logs medistand
+
+# Redémarrer
+pm2 restart medistand
+
+# Vérifier Nginx
+systemctl status nginx
+
+# Renouveler SSL (automatique mais vérification)
+certbot renew --dry-run
+
+pour gerer medistand

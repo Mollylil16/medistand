@@ -10,8 +10,8 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-gradient-to-br from-primary via-primary-700 to-primary-900 text-white">
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           {/* About Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
@@ -86,6 +86,29 @@ export const Footer: React.FC = () => {
                   {contactInfo.horaires}
                 </div>
               </li>
+              {contactInfo.gestionnaire && (
+                <>
+                  <li className="pt-2 border-t border-white/10">
+                    <div className="text-xs font-semibold text-accent mb-2">Gestionnaire</div>
+                    <div className="space-y-2">
+                      <a 
+                        href={`tel:${contactInfo.gestionnaire.telephone1}`} 
+                        className="flex items-center space-x-2 text-sm hover:text-accent transition-colors"
+                      >
+                        <Phone size={16} className="text-accent" />
+                        <span>{contactInfo.gestionnaire.telephone1}</span>
+                      </a>
+                      <a 
+                        href={`tel:${contactInfo.gestionnaire.telephone2}`} 
+                        className="flex items-center space-x-2 text-sm hover:text-accent transition-colors"
+                      >
+                        <Phone size={16} className="text-accent" />
+                        <span>{contactInfo.gestionnaire.telephone2}</span>
+                      </a>
+                    </div>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
 
@@ -137,12 +160,12 @@ export const Footer: React.FC = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-300">
-            <div className="mb-4 md:mb-0">
+        <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm text-gray-300 gap-4">
+            <div className="text-center sm:text-left">
               © {currentYear} MediStand Africa. Tous droits réservés.
             </div>
-            <div className="flex space-x-6">
+            <div className="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6">
               <Link href="/mentions-legales" className="hover:text-accent transition-colors">
                 Mentions légales
               </Link>

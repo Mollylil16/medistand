@@ -21,8 +21,6 @@ export const Modal: React.FC<ModalProps> = ({
   size = 'md',
   className,
 }) => {
-  if (!isOpen) return null;
-
   const sizeClasses = {
     sm: 'max-w-md',
     md: 'max-w-2xl',
@@ -33,13 +31,28 @@ export const Modal: React.FC<ModalProps> = ({
   // Empêcher le scroll du body quand le modal est ouvert
   React.useEffect(() => {
     if (isOpen) {
+      // Sauvegarder la position du scroll et l'overflow actuel
+      const scrollY = window.scrollY;
+      const bodyOverflow = document.body.style.overflow;
+      const htmlOverflow = document.documentElement.style.overflow;
+      
+      // Bloquer le scroll
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
+      document.documentElement.style.overflow = 'hidden';
+      
+      return () => {
+        // Restaurer le scroll
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = bodyOverflow;
+        document.documentElement.style.overflow = htmlOverflow;
+        window.scrollTo(0, scrollY);
+      };
     }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
   }, [isOpen]);
 
   if (!isOpen) return null;

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -28,39 +29,69 @@ export const Modal: React.FC<ModalProps> = ({
     xl: 'max-w-6xl',
   };
 
+  const [mounted, setMounted] = React.useState(false);
+
   // Empêcher le scroll du body quand le modal est ouvert
   React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  React.useEffect(() => {
     if (isOpen) {
-      // Sauvegarder la position du scroll et l'overflow actuel
+      // Sauvegarder la position du scroll
       const scrollY = window.scrollY;
-      const bodyOverflow = document.body.style.overflow;
-      const htmlOverflow = document.documentElement.style.overflow;
+      const scrollX = window.scrollX;
       
-      // Bloquer le scroll
+      // Bloquer le scroll de manière plus agressive
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = `-${scrollX}px`;
       document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
       document.documentElement.style.overflow = 'hidden';
+      document.documentElement.style.position = 'fixed';
+      document.documentElement.style.top = `-${scrollY}px`;
+      document.documentElement.style.left = `-${scrollX}px`;
+      document.documentElement.style.width = '100%';
+      
+      // Empêcher le scroll avec les touches
+      const preventScroll = (e: WheelEvent | TouchEvent) => {
+        e.preventDefault();
+      };
+      
+      window.addEventListener('wheel', preventScroll, { passive: false });
+      window.addEventListener('touchmove', preventScroll, { passive: false });
       
       return () => {
         // Restaurer le scroll
         document.body.style.position = '';
         document.body.style.top = '';
+        document.body.style.left = '';
         document.body.style.width = '';
-        document.body.style.overflow = bodyOverflow;
-        document.documentElement.style.overflow = htmlOverflow;
-        window.scrollTo(0, scrollY);
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+        document.documentElement.style.position = '';
+        document.documentElement.style.top = '';
+        document.documentElement.style.left = '';
+        document.documentElement.style.width = '';
+        
+        window.removeEventListener('wheel', preventScroll);
+        window.removeEventListener('touchmove', preventScroll);
+        
+        window.scrollTo(scrollX, scrollY);
       };
     }
   }, [isOpen]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
-  return (
+  const modalContent = (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-sm animate-fade-in"
       onClick={onClose}
+      onWheel={(e) => e.stopPropagation()}
+      onTouchMove={(e) => e.stopPropagation()}
+      style={{ overscrollBehavior: 'contain' }}
     >
       <div
         className={cn(
@@ -89,5 +120,7 @@ export const Modal: React.FC<ModalProps> = ({
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 };
 

@@ -328,7 +328,10 @@ export const DevisForm: React.FC = () => {
           <div className="bg-primary/5 border-l-4 border-primary p-3 sm:p-4 rounded-r-lg mt-4">
             <p className="text-xs sm:text-sm text-gray-700">
               <span className="font-semibold text-primary">Note :</span> Une proforma vous sera envoyée par email après validation de votre demande. 
-              Tarification de base : <span className="font-bold text-accent">9 000 FCFA/m²</span>.
+              <br />
+              <span className="font-semibold">Location :</span> <span className="font-bold text-accent">12 105 FCFA / m²/jour</span> - Transport et installation inclus partout à Abidjan.
+              <br />
+              <span className="font-semibold">Vente :</span> À partir de <span className="font-bold text-accent">51 505 FCFA / m²</span> - Les frais de transport sont à l'acquéreur.
             </p>
           </div>
           <p className="text-xs sm:text-sm text-gray-500 text-center mt-3 sm:mt-4">

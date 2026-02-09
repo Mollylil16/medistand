@@ -11,3 +11,6 @@ systemctl status nginx
 certbot renew --dry-run
 
 pour gerer medistand
+
+
+ok, je veux creer une IA qui va servir qui aura un role dans la pesée des animaux que je vais appelé l'IA des pesée. J'ai remardqué que c'est trop compliqué de faire  pesée les animaux. Donc pour la pesée, l'utilisateur grace a l'IA peut choisir de pesé soit une bete de sa cheptel ou un groupe. Je m'explique, le but est que l'utilisateur sera entrain de filmé un groupe de porcs, et a l'aide des signes sur les porcs, L'IA doit connaitre chaque porcs dans ce groupe, leurs nom et ensuite donner leurs poids( pas le poids commun mais individuel par exemple PORC 001 Nom: ELLA poids : 25KG) tu comprends ? donc ça va dependre, soit il fait la pesée individuel soit par groupe. la marge d'erreur doit etre inferieur a 0.005. Donc creons un dossier pour l'IA qu'on va construire de A a Z, l'entrainée et commencer les premiers pas. Je veux construire une vrai IA capable de reconnaitre chaque porcs dans une ferme et donne le poids approximatifs de chaque porcs

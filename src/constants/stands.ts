@@ -32,8 +32,8 @@ export const stands: Stand[] = [
       'Installation professionnelle incluse',
       'Transport et démontage inclus',
     ],
-    prix: 0, // Prix au m² : 9000 FCFA/m² - Proforma sur demande
-    image: '/stand1.jpg',
+    prix: 0, // Prix au m² : 12 105 FCFA/m²/jour - Transport et installation inclus partout à Abidjan
+    image: '/stand 1.jpeg',
     caracteristiques: [
       'Surface totale: 18m²',
       'Hauteur aménagement: 2,40m',
@@ -72,8 +72,8 @@ export const stands: Stand[] = [
       'Parfait pour petits budgets',
       'Transport inclus',
     ],
-    prix: 0, // Prix au m² : 9000 FCFA/m² - Proforma sur demande
-    image: '/stand 2.png',
+    prix: 0, // Prix au m² : 12 105 FCFA/m²/jour - Transport et installation inclus partout à Abidjan
+    image: '/stand 2 .jpeg',
     caracteristiques: [
       'Surface totale: 6m²',
       'Hauteur aménagement: 2,40m',
@@ -112,8 +112,8 @@ export const stands: Stand[] = [
       'Installation professionnelle',
       'Support technique inclus',
     ],
-    prix: 0, // Prix au m² : 9000 FCFA/m² - Proforma sur demande
-    image: '/stand 3.jpg',
+    prix: 0, // Prix au m² : 12 105 FCFA/m²/jour - Transport et installation inclus partout à Abidjan
+    image: '/stand 3.jpeg',
     caracteristiques: [
       'Surface totale: 9m²',
       'Hauteur aménagement: 2,40m',
@@ -152,7 +152,7 @@ export const stands: Stand[] = [
       'Gestion de projet dédiée',
     ],
     prix: 0, // Sur devis
-    image: '/stand4.jpg',
+    image: '/stand 4.jpeg',
     caracteristiques: [
       'Surface: Sur demande',
       'Capacité: Variable',

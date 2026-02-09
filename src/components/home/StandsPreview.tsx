@@ -81,12 +81,12 @@ export const StandsPreview: React.FC = () => {
                 <div className="pt-4 border-t">
                   <div className="flex items-baseline justify-between mb-4">
                     <div>
-                      <div className="text-xs sm:text-sm text-gray-600">À partir de</div>
+                      <div className="text-xs sm:text-sm text-gray-600">Tarif location</div>
                       <div className="text-2xl sm:text-3xl font-bold text-primary">
-                        9 000 FCFA/m²
+                        12 105 FCFA / m²/jour
                       </div>
                       <div className="text-xs text-gray-500 mt-1">
-                        {parseInt(stand.dimensions.largeur) * parseInt(stand.dimensions.profondeur)}m² - Proforma sur demande
+                        {parseInt(stand.dimensions.largeur) * parseInt(stand.dimensions.profondeur)}m² - Transport inclus
                       </div>
                     </div>
                   </div>

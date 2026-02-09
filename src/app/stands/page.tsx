@@ -95,10 +95,10 @@ export default function StandsPage() {
                           <div className="flex-1">
                             <div className="text-xs sm:text-sm text-gray-600 mb-1">Tarif location</div>
                             <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary">
-                              À partir de 9 000 FCFA/m²
+                              12 105 FCFA / m²/jour
                             </div>
                             <div className="text-xs sm:text-sm text-gray-600 mt-1">
-                              Proforma personnalisée sur demande
+                              Transport et installation inclus partout à Abidjan
                             </div>
                             <div className="text-xs text-accent font-semibold mt-2">
                               Surface : {parseInt(stand.dimensions.largeur) * parseInt(stand.dimensions.profondeur)}m²

@@ -27,7 +27,7 @@ export default function ConfigurateurPage() {
     if (typeof window === 'undefined') return null;
     const params = new URLSearchParams(window.location.search);
     if (params.size === 0) return null;
-    
+
     try {
       return {
         largeur: parseInt(params.get('l') || '3'),
@@ -74,14 +74,14 @@ export default function ConfigurateurPage() {
   // Calcul du prix dynamique
   const prixCalcule = useMemo(() => {
     let prix = 0;
-    
-    // Base : surface à 9000 FCFA/m²
+
+    // Base : surface à 12105 FCFA/m²/jour
     const surface = config.largeur * config.profondeur;
-    prix += surface * 9000; // 9000 FCFA par m²
-    
+    prix += surface * 12105; // 12105 FCFA par m²/jour
+
     // Hauteur supplémentaire (si > 2.4m)
     if (config.hauteur > 2.4) prix += 100000;
-    
+
     // Options supplémentaires
     if (config.comptoir) prix += 75000;
     // TV 43 pouces : ~300 000 FCFA
@@ -95,15 +95,15 @@ export default function ConfigurateurPage() {
     if (config.moquette) prix += 50000;
     if (config.stockage) prix += 100000;
     if (config.branding) prix += 200000;
-    
+
     return prix;
   }, [config]);
 
   const handleDownloadPDF = () => {
     // Générer un PDF avec les détails de la configuration
     const surface = config.largeur * config.profondeur;
-    const prixBase = surface * 9000;
-    
+    const prixBase = surface * 12105;
+
     // Créer le contenu du PDF en HTML avec un design professionnel
     const content = `
       <!DOCTYPE html>
@@ -371,7 +371,7 @@ export default function ConfigurateurPage() {
               </thead>
               <tbody>
                 <tr>
-                  <td>Base : ${surface}m² × 9 000 FCFA/m²</td>
+                  <td>Base : ${surface}m² × 12 105 FCFA/m²/jour</td>
                   <td style="text-align: right;">${formatPrice(prixBase)}</td>
                 </tr>
                 ${config.hauteur > 2.4 ? '<tr><td>Hauteur supplémentaire</td><td style="text-align: right;">+100 000 FCFA</td></tr>' : ''}
@@ -395,7 +395,7 @@ export default function ConfigurateurPage() {
           <div class="price-box">
             <div class="price-label">Prix Total Estimé</div>
             <div class="price-value">${formatPrice(prixCalcule)}</div>
-            <div style="font-size: 12px; opacity: 0.9; margin-top: 5px;">Base : ${surface}m² × 9 000 FCFA/m²</div>
+            <div style="font-size: 12px; opacity: 0.9; margin-top: 5px;">Base : ${surface}m² × 12 105 FCFA/m²/jour</div>
           </div>
           
           <div class="note-box">
@@ -415,7 +415,7 @@ export default function ConfigurateurPage() {
         </body>
       </html>
     `;
-    
+
     // Ouvrir une nouvelle fenêtre pour imprimer en PDF
     const printWindow = window.open('', '_blank');
     if (printWindow) {
@@ -436,7 +436,7 @@ export default function ConfigurateurPage() {
 
   const handleShare = () => {
     const surface = config.largeur * config.profondeur;
-    
+
     // Créer un lien avec les paramètres de configuration encodés
     const params = new URLSearchParams({
       l: config.largeur.toString(),
@@ -450,9 +450,9 @@ export default function ConfigurateurPage() {
       st: config.stockage ? '1' : '0',
       b: config.branding ? '1' : '0',
     });
-    
+
     const shareUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
-    
+
     // Texte détaillé pour le partage
     const shareText = `🏥 Ma configuration de stand MediStand Africa
 
@@ -631,12 +631,12 @@ Le lien contient votre configuration complète.`);
                 <div className="space-y-4 sm:space-y-6">
                   {/* Comptoir */}
                   <label className="flex items-center justify-between cursor-pointer group">
-                      <div>
-                        <div className="font-semibold text-gray-700 group-hover:text-primary transition-colors">
-                          Comptoir d'accueil
-                        </div>
-                        <div className="text-xs sm:text-sm text-gray-600">+ 75 000 FCFA</div>
+                    <div>
+                      <div className="font-semibold text-gray-700 group-hover:text-primary transition-colors">
+                        Comptoir d'accueil
                       </div>
+                      <div className="text-xs sm:text-sm text-gray-600">+ 75 000 FCFA</div>
+                    </div>
                     <input
                       type="checkbox"
                       checked={config.comptoir}
@@ -653,11 +653,10 @@ Le lien contient votre configuration complète.`);
                         <button
                           key={size}
                           onClick={() => setConfig({ ...config, ecran: size })}
-                          className={`p-3 sm:p-4 rounded-lg border-2 transition-all min-h-[44px] ${
-                            config.ecran === size
-                              ? 'border-accent bg-accent/10 font-semibold'
-                              : 'border-gray-200 hover:border-gray-300'
-                          }`}
+                          className={`p-3 sm:p-4 rounded-lg border-2 transition-all min-h-[44px] ${config.ecran === size
+                            ? 'border-accent bg-accent/10 font-semibold'
+                            : 'border-gray-200 hover:border-gray-300'
+                            }`}
                         >
                           <div className="font-semibold text-sm sm:text-base">{size === 'aucun' ? 'Sans écran' : `${size}"`}</div>
                           {size !== 'aucun' && (
@@ -715,11 +714,10 @@ Le lien contient votre configuration complète.`);
                         <button
                           key={type}
                           onClick={() => setConfig({ ...config, mobilier: type })}
-                          className={`p-3 sm:p-4 rounded-lg border-2 transition-all min-h-[44px] ${
-                            config.mobilier === type
-                              ? 'border-accent bg-accent/10 font-semibold'
-                              : 'border-gray-200 hover:border-gray-300'
-                          }`}
+                          className={`p-3 sm:p-4 rounded-lg border-2 transition-all min-h-[44px] ${config.mobilier === type
+                            ? 'border-accent bg-accent/10 font-semibold'
+                            : 'border-gray-200 hover:border-gray-300'
+                            }`}
                         >
                           <div className="font-semibold capitalize text-sm sm:text-base">{type}</div>
                           <div className="text-xs text-gray-600 mt-1">
@@ -799,7 +797,7 @@ Le lien contient votre configuration complète.`);
                     <span className="text-gray-600">Hauteur</span>
                     <span className="font-semibold">{config.hauteur}m</span>
                   </div>
-                  
+
                   <div className="border-t pt-4 space-y-2">
                     {config.comptoir && (
                       <div className="flex justify-between text-sm">
@@ -846,7 +844,7 @@ Le lien contient votre configuration complète.`);
                     {formatPrice(prixCalcule)}
                   </div>
                   <div className="text-xs text-gray-600 mb-2">
-                    Base : {config.largeur * config.profondeur}m² × 9 000 FCFA/m²
+                    Base : {config.largeur * config.profondeur}m² × 12 105 FCFA/m²/jour
                   </div>
                   <div className="text-xs text-accent font-semibold">
                     Une proforma personnalisée vous sera envoyée après validation

@@ -40,7 +40,7 @@ export default function TarifsPage() {
         <div className="container mx-auto px-4 sm:px-6">
           <SectionTitle
             title="Nos Tarifs"
-            subtitle="Tarification au m² : À partir de 9 000 FCFA/m²"
+            subtitle="Location : 12 105 FCFA / m²/jour | Vente : À partir de 51 505 FCFA / m²"
           />
 
           {/* Info Tarification */}
@@ -51,19 +51,24 @@ export default function TarifsPage() {
                   Comment ça fonctionne ?
                 </h3>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  Nos tarifs sont calculés sur la base de <span className="font-bold text-accent">9 000 FCFA par m²</span>. 
+                  <span className="font-bold text-accent">Location de stands</span> : <span className="font-bold text-primary">12 105 FCFA / m²/jour</span> - Transport et installation inclus partout à Abidjan.
+                  <br /><br />
+                  <span className="font-bold text-accent">Vente de stands</span> : À partir de <span className="font-bold text-primary">51 505 FCFA / m²</span> - Les frais de transport sont à l'acquéreur.
+                  <br /><br />
                   Selon vos besoins spécifiques (équipements supplémentaires, personnalisation, etc.), 
                   une <span className="font-semibold text-primary">proforma personnalisée</span> vous sera envoyée 
                   par notre gestionnaire après validation de votre demande de devis.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-2">
                   <div className="bg-white/80 p-3 sm:p-4 rounded-lg">
-                    <div className="text-2xl sm:text-3xl font-bold text-accent">9 000 FCFA</div>
-                    <div className="text-xs sm:text-sm text-gray-600">par m² (base)</div>
+                    <div className="text-xl sm:text-2xl font-bold text-accent">12 105 FCFA</div>
+                    <div className="text-xs sm:text-sm text-gray-600">par m²/jour (location)</div>
+                    <div className="text-xs text-gray-500 mt-1">Transport inclus</div>
                   </div>
                   <div className="bg-white/80 p-3 sm:p-4 rounded-lg">
-                    <div className="text-2xl sm:text-3xl font-bold text-accent">+ Options</div>
-                    <div className="text-xs sm:text-sm text-gray-600">TV, LED, mobilier, etc.</div>
+                    <div className="text-xl sm:text-2xl font-bold text-accent">51 505 FCFA</div>
+                    <div className="text-xs sm:text-sm text-gray-600">par m² (vente)</div>
+                    <div className="text-xs text-gray-500 mt-1">À partir de</div>
                   </div>
                   <div className="bg-white/80 p-3 sm:p-4 rounded-lg">
                     <div className="text-2xl sm:text-3xl font-bold text-accent">Proforma</div>
@@ -91,14 +96,14 @@ export default function TarifsPage() {
                 <p className="text-gray-600 text-xs sm:text-sm mb-4 sm:mb-6">{stand.description}</p>
 
                 <div className="mb-4 sm:mb-6">
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">
-                    À partir de 9 000 FCFA/m²
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-1 sm:mb-2">
+                    12 105 FCFA / m²/jour
                   </div>
                   <div className="text-xs sm:text-sm text-gray-600">
                     Surface : {parseInt(stand.dimensions.largeur) * parseInt(stand.dimensions.profondeur)}m²
                   </div>
                   <div className="text-xs text-accent font-semibold mt-1">
-                    Proforma personnalisée sur demande
+                    Transport et installation inclus partout à Abidjan
                   </div>
                 </div>
 
@@ -134,8 +139,19 @@ export default function TarifsPage() {
               <p className="text-base sm:text-lg text-gray-700">
                 Pour des besoins spécifiques ou des configurations personnalisées
               </p>
-              <div className="text-xl sm:text-2xl font-bold text-accent py-3 sm:py-4">
-                À partir de 9 000 FCFA/m²
+              <div className="space-y-2 py-3 sm:py-4">
+                <div className="text-xl sm:text-2xl font-bold text-accent">
+                  Location : 12 105 FCFA / m²/jour
+                </div>
+                <div className="text-xs sm:text-sm text-gray-600">
+                  Transport et installation inclus partout à Abidjan
+                </div>
+                <div className="text-xl sm:text-2xl font-bold text-primary mt-3">
+                  Vente : À partir de 51 505 FCFA / m²
+                </div>
+                <div className="text-xs sm:text-sm text-gray-600">
+                  Les frais de transport sont à l'acquéreur
+                </div>
               </div>
               <p className="text-sm sm:text-base text-gray-600">
                 Contactez-nous pour discuter de votre projet. Une proforma personnalisée vous sera envoyée par notre gestionnaire.
@@ -224,7 +240,7 @@ export default function TarifsPage() {
             {[
               {
                 titre: 'Tarifs Compétitifs',
-                description: 'À partir de 9 000 FCFA/m², des prix attractifs sans compromis sur la qualité. Nous proposons les meilleurs tarifs du marché ivoirien.',
+                description: 'Location à 12 105 FCFA/m²/jour avec transport et installation inclus partout à Abidjan. Vente à partir de 51 505 FCFA/m². Des prix attractifs sans compromis sur la qualité.',
                 color: 'from-blue-500 to-blue-600',
               },
               {

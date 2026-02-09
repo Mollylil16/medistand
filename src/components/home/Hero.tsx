@@ -89,7 +89,7 @@ export const Hero: React.FC = () => {
               {/* Main Image */}
               <div className="absolute inset-0 rounded-2xl sm:rounded-3xl border-2 border-white/20 shadow-2xl overflow-hidden">
                 <Image
-                  src="/stand1.jpg"
+                  src="/stand 1.jpeg"
                   alt="Stand Professionnel MediStand Africa"
                   fill
                   className="object-cover"

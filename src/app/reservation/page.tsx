@@ -197,10 +197,10 @@ export default function ReservationPage() {
                     <div className="flex flex-col sm:flex-row items-start sm:items-baseline justify-between pt-2 border-t gap-3">
                       <div className="flex-1">
                         <div className="text-lg sm:text-xl md:text-2xl font-bold text-primary">
-                          À partir de 9 000 FCFA/m²
+                          12 105 FCFA / m²/jour
                         </div>
                         <div className="text-xs text-gray-600">
-                          {parseInt(stand.dimensions.largeur) * parseInt(stand.dimensions.profondeur)}m² - Proforma sur demande
+                          {parseInt(stand.dimensions.largeur) * parseInt(stand.dimensions.profondeur)}m² - Transport et installation inclus
                         </div>
                       </div>
                       <Button size="sm" onClick={() => handleStandSelect(stand.id)} className="min-h-[44px] text-xs sm:text-sm w-full sm:w-auto">
@@ -241,10 +241,10 @@ export default function ReservationPage() {
                       <div className="font-bold text-sm sm:text-base text-primary">{selectedStand.nom}</div>
                       <div className="text-xs sm:text-sm text-gray-600">{selectedStand.dimensions.largeur} × {selectedStand.dimensions.profondeur}</div>
                       <div className="text-sm sm:text-base md:text-lg font-bold text-accent">
-                        À partir de 9 000 FCFA/m²
+                        12 105 FCFA / m²/jour
                       </div>
                       <div className="text-xs text-gray-500">
-                        Proforma personnalisée sur demande
+                        Transport et installation inclus partout à Abidjan
                       </div>
                     </div>
                   </div>

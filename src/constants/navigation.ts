@@ -25,7 +25,7 @@ export const contactInfo: ContactInfo = {
 };
 
 export const socialLinks = {
-  facebook: '#',
+  facebook: 'https://www.facebook.com/profile.php?id=61585095590689',
   linkedin: '#',
   twitter: '#',
   instagram: '#',

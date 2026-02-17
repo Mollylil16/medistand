@@ -32,7 +32,7 @@ export const stands: Stand[] = [
       'Installation professionnelle incluse',
       'Transport et démontage inclus',
     ],
-    prix: 0, // Prix au m² : 12 105 FCFA/m²/jour - Transport et installation inclus partout à Abidjan
+    prix: 0, // Prix au m² : 12 005 FCFA/m²/jour - Transport et installation inclus partout à Abidjan
     image: '/stand 1.jpeg',
     caracteristiques: [
       'Surface totale: 18m²',
@@ -72,7 +72,7 @@ export const stands: Stand[] = [
       'Parfait pour petits budgets',
       'Transport inclus',
     ],
-    prix: 0, // Prix au m² : 12 105 FCFA/m²/jour - Transport et installation inclus partout à Abidjan
+    prix: 0, // Prix au m² : 12 005 FCFA/m²/jour - Transport et installation inclus partout à Abidjan
     image: '/stand 2 .jpeg',
     caracteristiques: [
       'Surface totale: 6m²',
@@ -112,7 +112,7 @@ export const stands: Stand[] = [
       'Installation professionnelle',
       'Support technique inclus',
     ],
-    prix: 0, // Prix au m² : 12 105 FCFA/m²/jour - Transport et installation inclus partout à Abidjan
+    prix: 0, // Prix au m² : 12 005 FCFA/m²/jour - Transport et installation inclus partout à Abidjan
     image: '/stand 3.jpeg',
     caracteristiques: [
       'Surface totale: 9m²',

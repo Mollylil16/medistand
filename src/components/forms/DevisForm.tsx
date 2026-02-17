@@ -329,9 +329,9 @@ export const DevisForm: React.FC = () => {
             <p className="text-xs sm:text-sm text-gray-700">
               <span className="font-semibold text-primary">Note :</span> Une proforma vous sera envoyée par email après validation de votre demande. 
               <br />
-              <span className="font-semibold">Location :</span> <span className="font-bold text-accent">12 105 FCFA / m²/jour</span> - Transport et installation inclus partout à Abidjan.
+              <span className="font-semibold">Location :</span> <span className="font-bold text-accent">12 005 FCFA / m²/jour</span> - Transport et installation inclus partout à Abidjan.
               <br />
-              <span className="font-semibold">Vente :</span> À partir de <span className="font-bold text-accent">51 505 FCFA / m²</span> - Les frais de transport sont à l'acquéreur.
+              <span className="font-semibold">Vente :</span> À partir de <span className="font-bold text-accent">52 505 FCFA / m²</span> - Les frais de transport sont à l'acquéreur.
             </p>
           </div>
           <p className="text-xs sm:text-sm text-gray-500 text-center mt-3 sm:mt-4">

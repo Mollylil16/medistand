@@ -83,7 +83,7 @@ export const StandsPreview: React.FC = () => {
                     <div>
                       <div className="text-xs sm:text-sm text-gray-600">Tarif location</div>
                       <div className="text-2xl sm:text-3xl font-bold text-primary">
-                        12 105 FCFA / m²/jour
+                        12 005 FCFA / m²/jour
                       </div>
                       <div className="text-xs text-gray-500 mt-1">
                         {parseInt(stand.dimensions.largeur) * parseInt(stand.dimensions.profondeur)}m² - Transport inclus

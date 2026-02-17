@@ -75,9 +75,9 @@ export default function ConfigurateurPage() {
   const prixCalcule = useMemo(() => {
     let prix = 0;
 
-    // Base : surface à 12105 FCFA/m²/jour
+    // Base : surface à 12005 FCFA/m²/jour
     const surface = config.largeur * config.profondeur;
-    prix += surface * 12105; // 12105 FCFA par m²/jour
+    prix += surface * 12005; // 12005 FCFA par m²/jour
 
     // Hauteur supplémentaire (si > 2.4m)
     if (config.hauteur > 2.4) prix += 100000;
@@ -102,7 +102,7 @@ export default function ConfigurateurPage() {
   const handleDownloadPDF = () => {
     // Générer un PDF avec les détails de la configuration
     const surface = config.largeur * config.profondeur;
-    const prixBase = surface * 12105;
+    const prixBase = surface * 12005;
 
     // Créer le contenu du PDF en HTML avec un design professionnel
     const content = `
@@ -371,7 +371,7 @@ export default function ConfigurateurPage() {
               </thead>
               <tbody>
                 <tr>
-                  <td>Base : ${surface}m² × 12 105 FCFA/m²/jour</td>
+                  <td>Base : ${surface}m² × 12 005 FCFA/m²/jour</td>
                   <td style="text-align: right;">${formatPrice(prixBase)}</td>
                 </tr>
                 ${config.hauteur > 2.4 ? '<tr><td>Hauteur supplémentaire</td><td style="text-align: right;">+100 000 FCFA</td></tr>' : ''}
@@ -395,7 +395,7 @@ export default function ConfigurateurPage() {
           <div class="price-box">
             <div class="price-label">Prix Total Estimé</div>
             <div class="price-value">${formatPrice(prixCalcule)}</div>
-            <div style="font-size: 12px; opacity: 0.9; margin-top: 5px;">Base : ${surface}m² × 12 105 FCFA/m²/jour</div>
+            <div style="font-size: 12px; opacity: 0.9; margin-top: 5px;">Base : ${surface}m² × 12 005 FCFA/m²/jour</div>
           </div>
           
           <div class="note-box">
@@ -844,7 +844,7 @@ Le lien contient votre configuration complète.`);
                     {formatPrice(prixCalcule)}
                   </div>
                   <div className="text-xs text-gray-600 mb-2">
-                    Base : {config.largeur * config.profondeur}m² × 12 105 FCFA/m²/jour
+                    Base : {config.largeur * config.profondeur}m² × 12 005 FCFA/m²/jour
                   </div>
                   <div className="text-xs text-accent font-semibold">
                     Une proforma personnalisée vous sera envoyée après validation

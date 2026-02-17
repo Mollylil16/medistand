@@ -197,7 +197,7 @@ export default function ReservationPage() {
                     <div className="flex flex-col sm:flex-row items-start sm:items-baseline justify-between pt-2 border-t gap-3">
                       <div className="flex-1">
                         <div className="text-lg sm:text-xl md:text-2xl font-bold text-primary">
-                          12 105 FCFA / m²/jour
+                          12 005 FCFA / m²/jour
                         </div>
                         <div className="text-xs text-gray-600">
                           {parseInt(stand.dimensions.largeur) * parseInt(stand.dimensions.profondeur)}m² - Transport et installation inclus

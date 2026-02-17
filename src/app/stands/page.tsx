@@ -3,11 +3,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { 
-  CheckCircle, 
-  ArrowRight, 
-  Ruler, 
-  Box, 
+import {
+  CheckCircle,
+  ArrowRight,
+  Ruler,
+  Box,
   Zap,
   Info
 } from 'lucide-react';
@@ -35,7 +35,7 @@ export default function StandsPage() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               Nos <span className="text-accent">Stands Professionnels</span>
             </h1>
-            
+
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 leading-relaxed">
               Des solutions adaptées à tous vos besoins d'exposition
             </p>
@@ -48,8 +48,8 @@ export default function StandsPage() {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="space-y-12 sm:space-y-16 md:space-y-20">
             {stands.map((stand, index) => (
-              <div 
-                key={stand.id} 
+              <div
+                key={stand.id}
                 id={stand.id}
                 className="scroll-mt-20"
               >
@@ -95,7 +95,7 @@ export default function StandsPage() {
                           <div className="flex-1">
                             <div className="text-xs sm:text-sm text-gray-600 mb-1">Tarif location</div>
                             <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary">
-                              12 105 FCFA / m²/jour
+                              12 005 FCFA / m²/jour
                             </div>
                             <div className="text-xs sm:text-sm text-gray-600 mt-1">
                               Transport et installation inclus partout à Abidjan
@@ -224,7 +224,7 @@ export default function StandsPage() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
               Trouvé le stand idéal ?
             </h2>
-            
+
             <p className="text-base sm:text-lg md:text-xl text-gray-200">
               Contactez-nous pour obtenir un devis personnalisé et réserver votre stand
             </p>

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight, CheckCircle, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
@@ -86,15 +85,16 @@ export const Hero: React.FC = () => {
           {/* Visual */}
           <div className="relative lg:block animate-fade-in mt-8 lg:mt-0">
             <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
-              {/* Main Image */}
+              {/* Main Video */}
               <div className="absolute inset-0 rounded-2xl sm:rounded-3xl border-2 border-white/20 shadow-2xl overflow-hidden">
-                <Image
-                  src="/stand 1.jpeg"
-                  alt="Stand Professionnel MediStand Africa"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                <video
+                  src="/Stands.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                  aria-label="Stand Professionnel MediStand Africa"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
               </div>
